@@ -340,6 +340,56 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>св_КонтактноеЛицо</name>
+      <id>46</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.св_КонтактноеЛицо</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>св_КонтактноеЛицоРасширеннаяПодсказка</name>
+        <id>48</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>св_КонтактноеЛицоКонтекстноеМеню</name>
+        <id>47</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>СуммаДокумента</name>
       <id>31</id>
       <visible>true</visible>
@@ -772,7 +822,8 @@
 		КОГДА НаличиеФайлов.ЕстьФайлы
 			ТОГДА 1
 		ИНАЧЕ 0
-	КОНЕЦ КАК ЕстьФайлы
+	КОНЕЦ КАК ЕстьФайлы,
+ДокументЗаказПокупателя.св_КонтактноеЛицо КАК св_КонтактноеЛицо
 ИЗ
 	Документ.ЗаказПокупателя КАК ДокументЗаказПокупателя
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НаличиеФайлов КАК НаличиеФайлов
@@ -788,24 +839,20 @@
         <field>Ссылка</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>Номер</dataPath>
-        <field>Номер</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>СуммаДокумента</dataPath>
-        <field>СуммаДокумента</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>Проведен</dataPath>
-        <field>Проведен</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>ПометкаУдаления</dataPath>
         <field>ПометкаУдаления</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>Номер</dataPath>
+        <field>Номер</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Дата</dataPath>
         <field>Дата</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>Проведен</dataPath>
+        <field>Проведен</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Организация</dataPath>
@@ -820,20 +867,16 @@
         <field>Договор</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>СуммаДокумента</dataPath>
+        <field>СуммаДокумента</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Ответственный</dataPath>
         <field>Ответственный</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Комментарий</dataPath>
         <field>Комментарий</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaNestedDataSet">
-        <dataPath>Товары</dataPath>
-        <field>Товары</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaNestedDataSet">
-        <dataPath>Услуги</dataPath>
-        <field>Услуги</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>МоментВремени</dataPath>
@@ -842,6 +885,26 @@
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>ЕстьФайлы</dataPath>
         <field>ЕстьФайлы</field>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Есть файлы</value>
+            </content>
+          </localValue>
+        </title>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>Товары</dataPath>
+        <field>Товары</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>Услуги</dataPath>
+        <field>Услуги</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>св_КонтактноеЛицо</dataPath>
+        <field>св_КонтактноеЛицо</field>
       </fields>
     </extInfo>
   </attributes>
